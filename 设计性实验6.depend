@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1575600141 source:c:\users\王徐\shu project\数据结构\ex1\设计性实验6\main.cpp
+	<iostream>
+	"CSForest.h"
+
+1575600174 c:\users\王徐\shu project\数据结构\ex1\设计性实验6\csforest.h
+	"CSForestNode.h"
+	<iostream>
+
+1575599786 c:\users\王徐\shu project\数据结构\ex1\设计性实验6\csforestnode.h
+
