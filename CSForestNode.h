@@ -19,7 +19,7 @@ public:
 	CSForestNode *get_BroPtr() const;
 	void set_KidPtr(CSForestNode<T> *target);
 	void set_BroPtr(CSForestNode<T> *target);
-	T get_Data() const;
+	T &get_Data();
 	void set_Data(T d);
 };
 
@@ -65,7 +65,7 @@ void CSForestNode<T>::set_BroPtr(CSForestNode<T> *target)
 
 //
 template <class T>
-T CSForestNode<T>::get_Data() const
+T &CSForestNode<T>::get_Data()
 {
 	return this->data;
 }
