@@ -9,13 +9,14 @@
 
 1575599786 c:\users\王徐\shu project\数据结构\ex1\设计性实验6\csforestnode.h
 
-1575726144 source:c:\users\王徐\shu project\数据结构\ex1-6\main.cpp
+1575797338 source:c:\users\王徐\shu project\数据结构\ex1-6\main.cpp
 	<iostream>
 	"CSForest.h"
 
-1575727019 c:\users\王徐\shu project\数据结构\ex1-6\csforest.h
+1575797448 c:\users\王徐\shu project\数据结构\ex1-6\csforest.h
 	"CSForestNode.h"
 	<iostream>
+	<queue>
 
-1575724036 c:\users\王徐\shu project\数据结构\ex1-6\csforestnode.h
+1575797342 c:\users\王徐\shu project\数据结构\ex1-6\csforestnode.h
 

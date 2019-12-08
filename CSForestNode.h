@@ -12,7 +12,7 @@ private:
 public:
 	CSForestNode();
 	// constructor with kid & bro
-	CSForestNode(const T &d, CSForestNode *k, CSForestNode *b);
+	CSForestNode(const T d, CSForestNode *k, CSForestNode *b);
 	~CSForestNode();
 
 	CSForestNode *get_KidPtr() const;
@@ -29,7 +29,7 @@ CSForestNode<T>::CSForestNode()
 }
 
 template <class T>
-CSForestNode<T>::CSForestNode(const T &d, CSForestNode<T> *k, CSForestNode<T> *b)
+CSForestNode<T>::CSForestNode(const T d, CSForestNode<T> *k, CSForestNode<T> *b)
 	: data(d), kid(k), bro(b) {}
 
 template <class T>

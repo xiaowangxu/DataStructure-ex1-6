@@ -21,5 +21,23 @@ int main()
 	cout << "\n2nd Tree Root = " << Forest.get_TreeRootPtr(2)->get_Data();
 	cout << "\n";
 	Forest.traverse_PreOrder(Print);
+	cout << "\n";
+	Forest.traverse_MidOrder(Print);
+	cout << "\n";
+	Forest.traverse_PosOrder(Print);
+	cout << "\n";
+	CSForest<char> CopyForest;
+	CopyForest = Forest;
+	cout << "\n";
+	Forest.display();
+	cout << "\n";
+	CopyForest.display();
+	// CopyForest.get_NodePtr('A')->set_Data('X');
+	// CopyForest.get_NodePtr('D')->set_Data('Z');
+	CopyForest.add_Kid(CopyForest.get_NodePtr('A'), 'Y');
+	CopyForest.add_Tree('1');
+	cout << "\n";
+	CopyForest.display();
+
 	return 0;
 }
