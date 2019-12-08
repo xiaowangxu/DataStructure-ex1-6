@@ -18,7 +18,7 @@ int main()
 	cout << "ForestHeight:" << Forest.ForestHeight() << '\n';
 	cout << "ForestLeaves:" << Forest.ForestLeaves() << '\n';
 	cout << "BinaryTree Height: " << Forest.BinaryHeight() << '\n';
-	//cout << "LeavesNum: " << Forest.LeavesNum() << '\n';
+	cout << "LeavesNum: " << Forest.LeavesNum() << '\n';
 	Forest.display();
 	cout << "\nTree Count = " << Forest.get_TreeCount();
 	cout << "\n1st Tree Root = " << Forest.get_TreeRootPtr(1)->get_Data();
