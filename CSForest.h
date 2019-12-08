@@ -25,6 +25,9 @@ private:
 	static int BinaryHeight(CSForestNode<N> *root);
 	static int LeavesNum(CSForestNode<N> *root);
 
+	static int ForestHeight(CSForestNode<N> *u,int H);
+	static int ForestLeaves(CSForestNode<N> *u);
+
 public:
 	// constructor
 	CSForest();
@@ -50,6 +53,9 @@ public:
 
 	int BinaryHeight() const;
 	int LeavesNum() const;
+
+	int ForestHeight() const;
+	int ForestLeaves() const;
 };
 
 template <class N>
@@ -477,6 +483,36 @@ template <class N>
 int CSForest<N>::LeavesNum() const
 {
 	return LeavesNum(get_RootPtr());
+}
+
+
+template<class N>
+int CSForest<N>::ForestHeight(CSForestNode<N> *u,int H){
+	int Height = H;
+	if(u->get_KidPtr()) Height = max(Height,ForestHeight(u->get_KidPtr(),H+1));
+	if(u->get_BroPtr()) Height = max(Height,ForestHeight(u->get_BroPtr(),H));
+	return Height;
+}
+
+template<class N>
+int CSForest<N>::ForestHeight() const{
+	int H = ForestHeight(root,1);
+	return H;
+}
+
+template<class N>
+int CSForest<N>::ForestLeaves(CSForestNode<N> *u){
+	int Leaves = 0;
+	if(u->get_KidPtr()==nullptr) Leaves++;
+	if(u->get_KidPtr()) Leaves+=ForestLeaves(u->get_KidPtr());
+	if(u->get_BroPtr()) Leaves+=ForestLeaves(u->get_BroPtr());
+	return Leaves;
+}
+
+template<class N>
+int CSForest<N>::ForestLeaves() const{
+	int Leaves = ForestLeaves(root);
+	return Leaves;
 }
 
 #endif
