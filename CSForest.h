@@ -22,6 +22,9 @@ private:
 	static void traverse_MidOrder(CSForestNode<N> *root, void (*visit)(const N &));
 	static void traverse_PosOrder(CSForestNode<N> *root, void (*visit)(const N &));
 
+	static int BinaryHeight(CSForestNode<N> *root);
+	static int LeavesNum(CSForestNode<N> *root);
+
 public:
 	// constructor
 	CSForest();
@@ -44,6 +47,9 @@ public:
 	CSForest<N> &operator=(const CSForest<N> &tree);
 
 	void display(bool binary = false) const;
+
+	int BinaryHeight() const;
+	int LeavesNum() const;
 };
 
 template <class N>
@@ -414,6 +420,63 @@ void CSForest<N>::display_Traverse(CSForestNode<N> *root, int layer)
 		display_Traverse(root->get_KidPtr(), layer + 1);
 	if (root->get_BroPtr() != NULL)
 		display_Traverse(root->get_BroPtr(), layer);
+}
+
+//Get Binary Tree Height(recursion version)
+template <class N>
+int CSForest<N>::BinaryHeight(CSForestNode<N> *root)
+{
+	if (root == NULL)
+		return 0;
+	int lheight = BinaryHeight(root->get_KidPtr()) + 1;
+	int rheight = BinaryHeight(root->get_BroPtr()) + 1;
+	return lheight > rheight ? lheight : rheight;
+}
+
+template <class N>
+int CSForest<N>::BinaryHeight() const
+{
+	return BinaryHeight(get_RootPtr());
+}
+
+//Get leaves count (recursion version)
+//loop version is commented
+template <class N>
+int CSForest<N>::LeavesNum(CSForestNode<N> *root)
+{
+	/* int ans = 0;
+	queue<CSForestNode<N> *> treequeue;
+	treequeue.push(root);
+	while (treequeue.size() > 0)
+	{
+		CSForestNode<N> *treenode = treequeue.front();
+		treequeue.pop();
+		if (treenode->get_KidPtr() == NULL && treenode->get_BroPtr() == NULL)
+		{
+			ans++;
+		}
+		else
+		{
+			if (treenode->get_KidPtr() != NULL)
+			{
+				treequeue.push(treenode->get_KidPtr());
+			}
+			if (treenode->get_BroPtr() != NULL)
+			{
+				treequeue.push(treenode->get_BroPtr());
+			}
+		}
+	}
+	return ans; */
+	if (root->get_KidPtr() == NULL && root->get_BroPtr() == NULL)
+		return 1;
+	return LeavesNum(root->get_KidPtr()) + LeavesNum(root->get_BroPtr());
+}
+
+template <class N>
+int CSForest<N>::LeavesNum() const
+{
+	return LeavesNum(get_RootPtr());
 }
 
 #endif

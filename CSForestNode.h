@@ -5,8 +5,8 @@ template <class T>
 class CSForestNode
 {
 private:
-	CSForestNode *kid = NULL;
-	CSForestNode *bro = NULL;
+	CSForestNode<T> *kid = NULL;
+	CSForestNode<T> *bro = NULL;
 	T data;
 
 public:
