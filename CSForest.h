@@ -468,9 +468,7 @@ int CSForest<N>::LeavesNum(CSForestNode<N> *root)
 		}
 	}
 	return ans; */
-	if (root == NULL)
-		return 0;
-	else if (root->get_KidPtr() == NULL && root->get_BroPtr() == NULL)
+	if (root->get_KidPtr() == NULL && root->get_BroPtr() == NULL)
 		return 1;
 	return LeavesNum(root->get_KidPtr()) + LeavesNum(root->get_BroPtr());
 }
