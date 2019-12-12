@@ -20,3 +20,14 @@
 
 1575797342 c:\users\王徐\shu project\数据结构\ex1-6\csforestnode.h
 
+1575823960 source:d:\study\数据结构\datastructure-ex1-6\main.cpp
+	<iostream>
+	"CSForest.h"
+
+1575824165 d:\study\数据结构\datastructure-ex1-6\csforest.h
+	"CSForestNode.h"
+	<iostream>
+	<queue>
+
+1575822099 d:\study\数据结构\datastructure-ex1-6\csforestnode.h
+

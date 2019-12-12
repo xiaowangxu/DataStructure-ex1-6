@@ -15,6 +15,8 @@ int main()
 	CSForest<char> Forest(items, parents, 7);
 	Forest.display(true);
 	cout << "\n";
+	cout << "ForestHeight:" << Forest.ForestHeight() << '\n';
+	cout << "ForestLeaves:" << Forest.ForestLeaves() << '\n';
 	cout << "BinaryTree Height: " << Forest.BinaryHeight() << '\n';
 	cout << "LeavesNum: " << Forest.LeavesNum() << '\n';
 	Forest.display();
