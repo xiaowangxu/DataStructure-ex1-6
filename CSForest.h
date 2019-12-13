@@ -322,7 +322,10 @@ void CSForest<N>::traverse_MidOrder(CSForestNode<N> *root, void (*visit)(const N
 template <class N>
 void CSForest<N>::traverse_PosOrder(void (*visit)(const N &)) const
 {
-	traverse_PosOrder(this->get_RootPtr(), visit);
+	if (this->get_TreeCount() != 1)
+		traverse_PosOrder(this->get_RootPtr(), visit);
+	else
+		traverse_MidOrder(this->get_RootPtr(), visit);
 }
 
 template <class N>
@@ -490,9 +493,10 @@ int CSForest<N>::LeavesNum() const
 template <class N>
 int CSForest<N>::ForestHeight(CSForestNode<N> *u)
 {
-	if(u==NULL) return 0;
-	int	Lheight = ForestHeight(u->get_KidPtr()) + 1;
-	int	Rheight = ForestHeight(u->get_BroPtr());
+	if (u == NULL)
+		return 0;
+	int Lheight = ForestHeight(u->get_KidPtr()) + 1;
+	int Rheight = ForestHeight(u->get_BroPtr());
 	return Lheight > Rheight ? Lheight : Rheight;
 }
 
