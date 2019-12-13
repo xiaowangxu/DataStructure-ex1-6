@@ -294,6 +294,8 @@ void CSForest<N>::traverse_PreOrder(void (*visit)(const N &)) const
 template <class N>
 void CSForest<N>::traverse_PreOrder(CSForestNode<N> *root, void (*visit)(const N &))
 {
+	if (root == NULL)
+		return;
 	(*visit)(root->get_Data());
 	if (root->get_KidPtr() != NULL)
 		traverse_PreOrder(root->get_KidPtr(), visit);
@@ -311,6 +313,8 @@ void CSForest<N>::traverse_MidOrder(void (*visit)(const N &)) const
 template <class N>
 void CSForest<N>::traverse_MidOrder(CSForestNode<N> *root, void (*visit)(const N &))
 {
+	if (root == NULL)
+		return;
 	if (root->get_KidPtr() != NULL)
 		traverse_MidOrder(root->get_KidPtr(), visit);
 	(*visit)(root->get_Data());
@@ -331,6 +335,8 @@ void CSForest<N>::traverse_PosOrder(void (*visit)(const N &)) const
 template <class N>
 void CSForest<N>::traverse_PosOrder(CSForestNode<N> *root, void (*visit)(const N &))
 {
+	if (root == NULL)
+		return;
 	if (root->get_KidPtr() != NULL)
 		traverse_PosOrder(root->get_KidPtr(), visit);
 	if (root->get_BroPtr() != NULL)
@@ -511,6 +517,8 @@ template <class N>
 int CSForest<N>::ForestLeaves(CSForestNode<N> *u)
 {
 	int Leaves = 0;
+	if (u == NULL)
+		return 0;
 	if (u->get_KidPtr() == NULL)
 		Leaves++;
 	if (u->get_KidPtr())

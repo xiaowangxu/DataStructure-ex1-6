@@ -29,17 +29,18 @@ int main()
 			test >> parents[i];
 		}
 		CSForest<char> forest(items, parents, n);
+		cout << "Forest\n";
 		forest.display();
-		cout << "\n";
+		cout << "\nBinTree\n";
 		forest.display(true);
 		cout << "\n";
-		cout << "==========\n";
+		cout << "========================================\n";
 		cout << "ForestCount:" << forest.get_TreeCount() << "\n";
 		cout << "ForestHeight:" << forest.ForestHeight() << '\n';
 		cout << "ForestLeaves:" << forest.ForestLeaves() << '\n';
 		cout << "BinaryTree Height: " << forest.BinaryHeight() << '\n';
 		cout << "LeavesNum: " << forest.LeavesNum() << '\n';
-		cout << "==========";
+		cout << "========================================";
 		cout << "\nPreOrder: ";
 		forest.traverse_PreOrder(Print);
 		cout << "\nMidOrder: ";
@@ -47,7 +48,7 @@ int main()
 		cout << "\nPosOrder: ";
 		forest.traverse_PosOrder(Print);
 		cout << "\n";
-		cout << "==========";
+		cout << "========================================";
 		cout << "\n";
 		cout << "\n";
 	}
