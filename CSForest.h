@@ -516,16 +516,11 @@ int CSForest<N>::ForestHeight() const
 template <class N>
 int CSForest<N>::ForestLeaves(CSForestNode<N> *u)
 {
-	int Leaves = 0;
 	if (u == NULL)
 		return 0;
 	if (u->get_KidPtr() == NULL)
-		Leaves++;
-	if (u->get_KidPtr())
-		Leaves += ForestLeaves(u->get_KidPtr());
-	if (u->get_BroPtr())
-		Leaves += ForestLeaves(u->get_BroPtr());
-	return Leaves;
+		return 1 + ForestLeaves(u->get_BroPtr());
+	return ForestLeaves(u->get_BroPtr()) + ForestLeaves(u->get_KidPtr());
 }
 
 template <class N>
